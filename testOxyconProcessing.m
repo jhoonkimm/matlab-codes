@@ -1,15 +1,16 @@
-clear all; close all; clc;
+clc;
 
-metFilename = {'C:\Users\BertramLab\Documents\MATLAB\Jay\SBD_001\10146402_resting.txt'
-               'C:\Users\BertramLab\Documents\MATLAB\Jay\SBD_001\10146402_pws.txt'
-               'C:\Users\BertramLab\Documents\MATLAB\Jay\SBD_001\10146402_150baseline.txt'
-               'C:\Users\BertramLab\Documents\MATLAB\Jay\SBD_001\10146402_75baseline.txt'
-               'C:\Users\BertramLab\Documents\MATLAB\Jay\SBD_001\10146402_split.txt'};
+metFilename = {'C:\Users\hbclStudent\Desktop\Jay\MATLAB Scripts\SBD_001\10146402_resting.txt'
+               'C:\Users\hbclStudent\Desktop\Jay\MATLAB Scripts\SBD_001\10146402_pws.txt'
+               'C:\Users\hbclStudent\Desktop\Jay\MATLAB Scripts\SBD_001\10146402_150baseline.txt'
+               'C:\Users\hbclStudent\Desktop\Jay\MATLAB Scripts\SBD_001\10146402_75baseline.txt'
+               'C:\Users\hbclStudent\Desktop\Jay\MATLAB Scripts\SBD_001\10146402_split.txt'};
 tot = [];
-for i = 1:length(metFilename)
-    metOutput = oxyconProcessing(metFilename{i},'COT',0);
-    tot = [tot;metOutput];
-end
+% for i = 1:length(metFilename)
+    metOutput1 = oxyconProcessing(metFilename{i},'brockway',1);
+    metOutput2 = oxyconProcessing(metFilename{i},'brockway',0,'massSpecific',0);
+%     tot = [tot;metOutput];
+% end
 
 %%
 clear all; close all; clc;
