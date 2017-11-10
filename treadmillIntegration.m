@@ -9,7 +9,7 @@ folder = 'SBD_001';
 
 customLog = 'phasespaceCustomLog1_11072017-PWS_01.txt';
 treadmillData = '11072017-PWS_01.mat';
-c3dFile = 'capture-20171107-PWS_01_CLEANED.c3d';
+c3dFile = 'capture-20171107-PWS_01_CLEANED';
 
 %---------------------------------------------------------------------------------------------------------------------------------------%
 path = 'C:\Users\hbclStudent\Desktop\Jay';
@@ -21,7 +21,7 @@ c3dFilenameToLoad = fullfile(path,folder,c3dFile);
 
 outputFilename = sprintf('integrated_%s_%s',folder,c3dFile);
 
-[ phasespaceAndTreadmillStructure ] = savePhasespaceAndTreadmillDataInC3D(...
+[ phasespaceAndTreadmillStructure ] = savePhasespaceAndTreadmillDataInC3D2017(...
   customPhasespaceLogName, savedTreadmillDataFilename, c3dFilenameToLoad, outputFilename,...
   'c3dUnitsAreInMeters',1,...
   'shouldFillGapsInMarkerData',0);

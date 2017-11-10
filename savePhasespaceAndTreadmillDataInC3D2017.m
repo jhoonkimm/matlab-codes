@@ -1,6 +1,6 @@
-function [ phasespaceAndTreadmillStructure ] = savePhasespaceAndTreadmillDataInC3D(...
+function [ phasespaceAndTreadmillStructure ] = savePhasespaceAndTreadmillDataInC3D2017(...
     customPhasespaceLogName, savedTreadmillDataFilename, c3dFilenameToLoad, outputFilename, varargin)
-% savePhasespaceAndTreadmillDataInC3Dfunction is a unified program to
+% savePhasespaceAndTreadmillDataInC3D2017 is a unified program to
 % integrate Phasespace C3D, customlog, and treadmill data (either Lanxing's
 % Matlab output or Labview TDMS output).
 %
@@ -1212,7 +1212,7 @@ c3dServer.SetParameterValue(nIndex, 0, -1); %[]); %
 %%
 
 
-savec3d(c3dServer); %, 'output.c3d'); %
+savec3d(c3dServer,name); %, 'output.c3d'); %
 closec3d(c3dServer);
 
 phasespaceAndTreadmillStructure.markers = customPhasespaceLog;
