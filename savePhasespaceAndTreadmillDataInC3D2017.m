@@ -1211,10 +1211,6 @@ c3dServer.SetParameterValue(nIndex, 0, -1); %[]); %
 
 %%
 
-
-savec3d(c3dServer,name); %, 'output.c3d'); %
-closec3d(c3dServer);
-
 phasespaceAndTreadmillStructure.markers = customPhasespaceLog;
 
 for i = 1:length(analogChannelNames)
@@ -1223,29 +1219,32 @@ for i = 1:length(analogChannelNames)
         analogChannelData{i};
 end
 
-%%
-a = loadPhasespaceRecord(outputFilename, 'forceReprocess', 1);
+savec3d(c3dServer,name); %, 'output.c3d'); %
+closec3d(c3dServer);
 
-if ForcePlateCorrection
-    NAnalog = numberOfFrames/phasespaceSampleFrequency*960;
-    POS = POS(1:NAnalog,:);
-    VEL = VEL(1:NAnalog,:);
-    ACC = ACC(1:NAnalog,:);
-    
-    matfilename = createMatOutputFilename(outputFilename);
-    savenames = {'POS' 'VEL' 'ACC' 'HS' 'TO'};
-    save(matfilename,savenames{:},'-append');
-end
-totalBad = 0;
-for markerName = a.markerNames
-    %   markerName{:}
-    totalBad = totalBad + sum(sum(isnan(a.(markerName{:}))));
-end
-if (totalBad > 0)
-    if (errorOnFindingNaNs)
-        error('reloaded processed c3d, and found missing markers, not fully tracked! This is a programming error, check the code!');
-    end
-end
+%%
+% a = loadPhasespaceRecord(outputFilename, 'forceReprocess', 1);
+% 
+% if ForcePlateCorrection
+%     NAnalog = numberOfFrames/phasespaceSampleFrequency*960;
+%     POS = POS(1:NAnalog,:);
+%     VEL = VEL(1:NAnalog,:);
+%     ACC = ACC(1:NAnalog,:);
+%     
+%     matfilename = createMatOutputFilename(outputFilename);
+%     savenames = {'POS' 'VEL' 'ACC' 'HS' 'TO'};
+%     save(matfilename,savenames{:},'-append');
+% end
+% totalBad = 0;
+% for markerName = a.markerNames
+%     %   markerName{:}
+%     totalBad = totalBad + sum(sum(isnan(a.(markerName{:}))));
+% end
+% if (totalBad > 0)
+%     if (errorOnFindingNaNs)
+%         error('reloaded processed c3d, and found missing markers, not fully tracked! This is a programming error, check the code!');
+%     end
+% end
 
 
 end

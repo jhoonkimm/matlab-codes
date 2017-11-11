@@ -12,12 +12,12 @@ treadmillData = '11072017-PWS_01.mat';
 c3dFile = 'capture-20171107-PWS_01_CLEANED';
 
 %---------------------------------------------------------------------------------------------------------------------------------------%
-path = 'C:\Users\hbclStudent\Desktop\Jay';
+path = 'C:\Users\jhoonkim\Google Drive\MDSC 508\Data';%'C:\Users\hbclStudent\Desktop\Jay';
 list = {'75Baseline','150Baseline','PWSBaseline','Split','Post'};
 
 customPhasespaceLogName = fullfile(path,folder,customLog);
 savedTreadmillDataFilename = fullfile(path,folder,treadmillData);
-c3dFilenameToLoad = fullfile(path,folder,c3dFile);
+c3dFilenameToLoad = fullfile(path,folder,sprintf('%s.c3d',c3dFile));
 
 outputFilename = sprintf('integrated_%s_%s',folder,c3dFile);
 
