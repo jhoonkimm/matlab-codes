@@ -30,7 +30,6 @@ end
 
 met = struct;
 metcell = [];
-spltcell = [];
 
 for m = find(~cellfun(@isempty,folder))
     clear dirSBDnames
@@ -100,12 +99,9 @@ calSpltL  = caloricEquivalent(smooth(metSplt.vo2kg(idxSplitL),5,'moving'),metSpl
 calPostE  = caloricEquivalent(smooth(metPost.vo2kg(idxPostE),5,'moving'),metPost.rer(idxPostE));
 calPostL  = caloricEquivalent(smooth(metPost.vo2kg(idxPostL),5,'moving'),metPost.rer(idxPostL));
 
-spltMet = [];
-per = [4,5,6,7,8,9,10,11,12,13,14,15,16]*60;
+per = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]*60;
 for k = 1:length(per)-1
-    idxPer  = ((metSplt.time>per(k)) + (metSplt.time<per(k+1)))==2;
-    spltMet = [spltMet;mean(caloricEquivalent(smooth(metSplt.vo2kg(idxPer),5,'moving'),metSplt.rer(idxPer)))-mean(calRest)];
-end
+    
 
 met.(folder{m}) = [ mean(calPWS)-mean(calRest)
                     mean(cal150 )-mean(calRest)
@@ -116,7 +112,6 @@ met.(folder{m}) = [ mean(calPWS)-mean(calRest)
                     mean(calPostL)-mean(calRest)];
 
 metcell = [metcell, met.(folder{m})];
-spltcell = [spltcell, spltMet];
 end
 
 %%
@@ -132,11 +127,5 @@ p = rmaov1(repAn);
 
 [pvalues, results] = hbclstats(metcelli);
 
-%%
-
-plot(mean(spltcell,2))
-hold on
-errorbar(1:length(mean(spltcell,2)),mean(spltcell,2),std(spltcell'))
-hold off
 
 
