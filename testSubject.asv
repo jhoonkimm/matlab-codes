@@ -1,5 +1,0 @@
-clear all; clc; close all;
-
-path  = 'E:\RESEARCH\MDSC 508';
-folder = 'SBD_004';
-xlsrea
