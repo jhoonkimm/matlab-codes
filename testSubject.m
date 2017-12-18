@@ -1,7 +1,7 @@
 clear all; clc; close all;
-
 path  = 'E:\RESEARCH\MDSC 508';
 pathDir = dir(path);
+
 
 folder = {};
 for i = 1:length(pathDir)
@@ -18,3 +18,4 @@ for m = find(~cellfun(@isempty,folder))
     age = [age;output.age];
 end
 
+output = indexProcessing('E:\RESEARCH\MDSC 508','SBD_005')

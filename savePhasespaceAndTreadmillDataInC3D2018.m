@@ -133,7 +133,7 @@ end
 if (verbose > 0) % barely used, should reconsider
     fprintf('loading in custom phasespace log...\n');
 end
-[customPhasespaceLog] = processCustomPhasespaceLog(customPhasespaceLogName, 'forceReprocess', forceReprocess,'markerRenaming',markerRenaming);
+[customPhasespaceLog] = processCustomPhasespaceLog(customPhasespaceLogName, 'forceReprocess', forceReprocess,'markerRenaming',markerRenaming,'createCachedFile',0);
 
 % rename markers in custom log:
 markerNamesOriginal = fields(customPhasespaceLog);

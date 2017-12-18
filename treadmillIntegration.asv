@@ -14,7 +14,7 @@ elseif strcmp(system,'WIN')
 end
 %---------------------------------------------------------------------------------------------------------------------------------------%
 
-folder = 'SBD_005';
+folder = 'SBD_003';
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------%
@@ -26,11 +26,9 @@ idxDirMat = find(not(cellfun('isempty',regexp(dirSBDnames,'.mat'))));
 
 idxCleaned = [];
 for i = idxDirSBD
-    if regexp(lower(dirSBDnames{i}),'cleaned') % find all "cleaned" c3d files
-        if isempty(regexp(lower(dirSBDnames{i}),'integrated')) %#ok<RGXP1> % remove all "integrated" c3d files
-            if isempty(regexp(lower(dirSBDnames{i}),'.mat')) %#ok<RGXP1> % remove all "integrated" mat files
+    if regexp(lower(dirSBDnames{i}),'cleaned')
+        if regexp(lower(dirSBDnames{i}),'integrated')==0
             idxCleaned =    [idxCleaned,   i];
-            end
         end
     end
 end
