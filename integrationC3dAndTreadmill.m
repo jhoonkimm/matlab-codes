@@ -6,7 +6,7 @@ function integrationC3dAndTreadmill(path,folder,varargin)
 %
 %  Flags:
 %   exclude
-%       excludes only 'pws','fast','slow','split' or 'post' c3d files
+%       excludes only 'pws','fast','slow','split' or 'post' c3d files. Can be cell array.
 %
 %
 %  Created by Jay Kim (11/09/2017)
