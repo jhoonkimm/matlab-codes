@@ -107,16 +107,18 @@ if integrated==0
 
     idxPWSbaseMat = []; idx150baseMat = []; idx75baseMat = []; idxSplitMat = []; idxPostMat = [];
     for i = idxDirMat
-        if regexp(lower(dirSBDnames{i}),'pws')
-        idxPWSbaseMat =    [idxPWSbaseMat,   i];
-        elseif regexp(lower(dirSBDnames{i}),'150')
-        idx150baseMat =    [idx150baseMat,   i];
-        elseif regexp(lower(dirSBDnames{i}),'75')
-        idx75baseMat =     [idx75baseMat, i];
-        elseif regexp(lower(dirSBDnames{i}),'split')
-        idxSplitMat =      [idxSplitMat,   i];
-        elseif regexp(lower(dirSBDnames{i}),'post')
-        idxPostMat =       [idxPostMat, i];
+        if isempty(regexp(lower(dirSBDnames{i}),'processed', 'once'))
+            if regexp(lower(dirSBDnames{i}),'pws')
+            idxPWSbaseMat =    [idxPWSbaseMat,   i];
+            elseif regexp(lower(dirSBDnames{i}),'150')
+            idx150baseMat =    [idx150baseMat,   i];
+            elseif regexp(lower(dirSBDnames{i}),'75')
+            idx75baseMat =     [idx75baseMat, i];
+            elseif regexp(lower(dirSBDnames{i}),'split')
+            idxSplitMat =      [idxSplitMat,   i];
+            elseif regexp(lower(dirSBDnames{i}),'post')
+            idxPostMat =       [idxPostMat, i];
+            end
         end
     end
 

@@ -46,6 +46,8 @@ output.speedPWS     = raw{12,2};
 output.speed150     = raw{13,2};
 output.speed075     = raw{14,2};
 output.notes        = raw{16,2};
+output.rightheel    = raw{1,8};
+output.leftheel     = raw{2,8};
 output.raw          = raw;
 
 age = datevec(datenum(output.date,'yyyy-mm-dd')-datenum(output.dob,'yyyy-mm-dd'));

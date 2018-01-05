@@ -18,7 +18,11 @@ disp(['runV3DPipeline() -- Running Visual3D with pipeline ' strFNPipeline '...']
 % the application can be used instead
 % (e.g., '"C:\Program Files\Visual3D v3\Visual3D.exe" /s' strFNPipeline).
 % [status,result] = dos(['Visual3D.exe /s "' strFNPipeline]);
-[status,result] = dos(['"C:\Program Files\Visual3D v6 x64\Visual3D.exe" /s ' strFNPipeline '&'])
+[status,result] = dos(['"C:\Program Files\Visual3D v6 x64\Visual3D.exe" /s ' strFNPipeline '&'],'-echo');
+
+if status == 0
+    fprintf('Visual3D executed properly')
+end
 
 % To edit the path on Windows XP:
 % 1.  Click Start menu, then right click My Computer and select Properties.
